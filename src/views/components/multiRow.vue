@@ -17,43 +17,42 @@
 </template>
 
 <script>
-import { directive } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
+import { directive } from 'vue-awesome-swiper'
 
 export default {
-  name: "Home",
+  name: 'Home',
   directives: {
     swiper: directive,
   },
   data() {
-    const self = this;
+    const self = this
     return {
       isEnd: false,
       swiperOptions: {
         loop: false,
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         freeMode: true,
         height: 50,
         grabCursor: true,
         slidesPerColumn: 2, //
-        slidesPerColumnFill: "row",
+        slidesPerColumnFill: 'row',
         spaceBetween: 10,
         on: {
           // onAny(eventName, ...args) {
           //   console.log('Event: ', eventName, args);
           // },
           slideChange() {
-            console.log("slideChange");
-            self.isEnd = this.isEnd;
+            console.log('slideChange')
+            self.isEnd = this.isEnd
           },
         },
       },
-    };
+    }
   },
-};
+}
 </script>
 <style scoped>
-@import "~swiper/css/swiper.css";
+@import '~swiper/css/swiper.css';
 .swiper-slide {
   width: fit-content;
 }
