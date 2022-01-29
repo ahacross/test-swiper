@@ -1,5 +1,7 @@
 <template>
-  <div ref="translateSwiper" class="translate-swiper" draggable="true">
+  <!-- <div ref="translateSwiper" class="translate-swiper" draggable="true"> -->
+  <!-- 위에 주석 처럼 draggable 추가하고 drag event 걸어주면 기능 다시 수정해야 함...-->
+  <div ref="translateSwiper" class="translate-swiper">
     <div
       class="slide-wrapper"
       :style="`transform: translateX(${wrapperInfo[0].translate}px)`"
@@ -28,6 +30,15 @@
       <button>Slide 24</button>
       <button>Slide 25</button>
     </div>
+    <div
+      class="slide-wrapper"
+      :style="`transform: translateX(${wrapperInfo[2].translate}px)`"
+    >
+      <button>Slide 32</button>
+      <button>Slide 33</button>
+      <button>Slide 34</button>
+      <button>Slide 35</button>
+    </div>
   </div>
 </template>
 
@@ -37,7 +48,7 @@ export default {
   data() {
     return {
       swiperInfo: {
-        wrapperInfo: [{ translate: 0 }, { translate: 0 }],
+        wrapperInfo: [{ translate: 0 }, { translate: 0 }, { translate: 0 }],
         start: 0,
         end: 0,
         correction: 0,
@@ -143,6 +154,7 @@ export default {
       } else {
         const left = this.getRect().left
         const ratio = isEnd ? 1 : Math.abs(left / this.swiperInfo.end)
+        console.log()
         return changeTranslate + wrapper.gap * (ratio > 1 ? 1 : ratio)
       }
     },
@@ -169,6 +181,7 @@ export default {
     width: fit-content;
     & button {
       white-space: nowrap;
+      font-size: 30px;
     }
   }
 }
